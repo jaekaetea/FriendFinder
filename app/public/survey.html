@@ -305,7 +305,7 @@
             </div>
             <div class="modal-body">
                 <h2 id="bestFriend"></h2>
-                <img id="bestFriendPhoto" class="center" src="#">
+                <img id="bestFriendPhoto" class="center" src="#"/>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -361,10 +361,19 @@ $("#submit").on("click", function(event) {
             $('html, body').animate({ scrollTop: 0 }, 'fast');
             $(".modal").modal("show");
         });
+
+        $("#name").val("");
+        $("#photo").val("");
+        var radios = document.querySelectorAll('input[type="radio"]');
+        for (var i  = 0; i < radios.length; i++) {
+            radios[i].checked = radios[i].defaultChecked;
+        };
     };
-    $("#name").val("");
-    $("#photo").val("");
 });
+
+$("img").on("error", function () {
+    $(this).attr("src", "https://raw.githubusercontent.com/jaekaetea/FriendFinder/master/images/noPic.png");
+}); 
 
 </script>
 
